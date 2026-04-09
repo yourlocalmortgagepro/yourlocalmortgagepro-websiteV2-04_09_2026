@@ -1,7 +1,6 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-
-export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://yourlocalmortgagepro.com',
-});
+{
+  "framework": "astro",
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install"
+}
