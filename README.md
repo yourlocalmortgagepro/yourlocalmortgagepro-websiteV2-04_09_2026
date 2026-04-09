@@ -1,0 +1,239 @@
+---
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | Your Local Mortgage Pro - Dennis Fields</title>
+  <meta name="description" content="Dennis Fields - Your Local Mortgage Pro serving NC, SC, and VA. Specializing in first-time homebuyers, VA loans, FHA, USDA, and deal rescue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased bg-white text-gray-900">
+  
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center">
+          <a href="/" class="flex items-center">
+            <img src="/logo.png" alt="Your Local Mortgage Pro" class="h-12 w-auto">
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">Home</a>
+          <a href="/about" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">About Dennis</a>
+          <a href="/loan-programs" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">Loan Programs</a>
+          <a href="/first-time-buyers" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">First-Time Buyers</a>
+          <a href="/deal-rescue" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">Deal Rescue</a>
+          <a href="/resources" class="text-gray-700 hover:text-primary-cyan transition-colors font-medium">Resources</a>
+          <a href="https://calendly.com/dennisfieldsmortgagepro" target="_blank" class="bg-primary-magenta text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-pink-600 transition-all shadow-md">Get Pre-Approved</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-cyan">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <div class="px-4 pt-2 pb-4 space-y-2">
+        <a href="/" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">Home</a>
+        <a href="/about" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">About Dennis</a>
+        <a href="/loan-programs" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">Loan Programs</a>
+        <a href="/first-time-buyers" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">First-Time Buyers</a>
+        <a href="/deal-rescue" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">Deal Rescue</a>
+        <a href="/resources" class="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">Resources</a>
+        <a href="https://calendly.com/dennisfieldsmortgagepro" target="_blank" class="block px-3 py-2 bg-primary-magenta text-white rounded-md text-center font-semibold">Get Pre-Approved</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <slot />
+
+  <!-- Footer -->
+  <footer class="bg-primary-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="/logo.png" alt="Your Local Mortgage Pro" class="h-12 w-auto mb-4 brightness-0 invert">
+          <p class="text-gray-400 text-sm">Helping families in NC, SC, and VA achieve homeownership since 2000.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/loan-programs" class="hover:text-primary-cyan transition-colors">Loan Programs</a></li>
+            <li><a href="/first-time-buyers" class="hover:text-primary-cyan transition-colors">First-Time Buyers</a></li>
+            <li><a href="/deal-rescue" class="hover:text-primary-cyan transition-colors">Deal Rescue</a></li>
+            <li><a href="/resources" class="hover:text-primary-cyan transition-colors">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>Dennis Fields</li>
+            <li>NMLS #1407951</li>
+            <li>Greensboro, NC</li>
+            <li><a href="https://yourlocalmortgagepro.com" class="hover:text-primary-cyan transition-colors">yourlocalmortgagepro.com</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-lg mb-4">Follow Me</h4>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/yourlocalmortgagepros" target="_blank" class="text-gray-400 hover:text-primary-cyan transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/dennisfieldsmortgagepro" target="_blank" class="text-gray-400 hover:text-primary-cyan transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/dennis-fields" target="_blank" class="text-gray-400 hover:text-primary-cyan transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+          <a href="https://dennisfieldsmortgagepro.com" target="_blank" class="inline-block mt-4 px-4 py-2 bg-primary-cyan text-white rounded-lg font-medium hover:bg-cyan-600 transition-colors text-sm">
+            Mortgages That Mean More
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>&copy; {new Date().getFullYear()} Dennis Fields - Your Local Mortgage Pro. All rights reserved.</p>
+        <p class="mt-2">NMLS #1407951 | Movement Mortgage | Equal Housing Lender</p>
+        <p class="mt-1 text-xs">All loans subject to approval.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chatbot Widget -->
+  <div id="chatbot-widget" class="fixed bottom-6 right-6 z-50">
+    <button id="chatbot-toggle" class="bg-primary-magenta text-white rounded-full p-4 shadow-lg hover:bg-pink-600 transition-all hover:scale-110">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+      </svg>
+    </button>
+    
+    <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white rounded-lg shadow-2xl flex flex-col">
+      <div class="bg-primary-magenta text-white p-4 rounded-t-lg flex justify-between items-center">
+        <h3 class="font-semibold">Chat with Dennis</h3>
+        <button id="chatbot-close" class="text-white hover:text-gray-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-3">
+        <div class="bg-gray-100 rounded-lg p-3 text-sm">
+          <p class="font-medium text-primary-magenta mb-1">Dennis Fields</p>
+          <p>Hi! I'm here to help answer your mortgage questions. What would you like to know about buying a home?</p>
+        </div>
+      </div>
+      <div class="p-4 border-t">
+        <div class="flex space-x-2">
+          <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-cyan">
+          <button id="chatbot-send" class="bg-primary-cyan text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Chatbot functionality
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotInput = document.getElementById('chatbot-input') as HTMLInputElement;
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    chatbotToggle?.addEventListener('click', () => {
+      chatbotWindow?.classList.toggle('hidden');
+    });
+
+    chatbotClose?.addEventListener('click', () => {
+      chatbotWindow?.classList.add('hidden');
+    });
+
+    function addMessage(text: string, isUser: boolean = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `rounded-lg p-3 text-sm ${isUser ? 'bg-primary-cyan text-white ml-8' : 'bg-gray-100 mr-8'}`;
+      
+      if (!isUser) {
+        const nameP = document.createElement('p');
+        nameP.className = 'font-medium text-primary-magenta mb-1';
+        nameP.textContent = 'Dennis Fields';
+        messageDiv.appendChild(nameP);
+      }
+      
+      const textP = document.createElement('p');
+      textP.textContent = text;
+      messageDiv.appendChild(textP);
+      
+      chatbotMessages?.appendChild(messageDiv);
+      chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
+    }
+
+    function handleChatbotMessage() {
+      const message = chatbotInput?.value.trim();
+      if (!message) return;
+      
+      addMessage(message, true);
+      chatbotInput.value = '';
+      
+      // Simple response logic - you can enhance this or connect to an AI API
+      setTimeout(() => {
+        const lowerMessage = message.toLowerCase();
+        let response = '';
+        
+        if (lowerMessage.includes('first time') || lowerMessage.includes('first-time')) {
+          response = 'Great question! As a first-time homebuyer, you may qualify for special programs with as little as 0-3.5% down. I specialize in FHA, VA, USDA, and down payment assistance programs. Want to schedule a quick call to see what you qualify for?';
+        } else if (lowerMessage.includes('rate') || lowerMessage.includes('interest')) {
+          response = 'Rates change daily based on market conditions. I can get you a personalized rate quote in minutes. The best way is to hop on a quick 15-minute call. Ready to schedule?';
+        } else if (lowerMessage.includes('credit') || lowerMessage.includes('score')) {
+          response = 'Good news - I work with all credit profiles! Even if you\'ve been declined elsewhere, I specialize in finding solutions. Many of my clients have credit challenges. Let\'s talk about your specific situation.';
+        } else if (lowerMessage.includes('va') || lowerMessage.includes('veteran') || lowerMessage.includes('military')) {
+          response = 'Thank you for your service! VA loans are one of my specialties - 0% down, no PMI, and competitive rates. I\'d love to walk you through the benefits. Can we schedule a call?';
+        } else {
+          response = 'That\'s a great question! The best way for me to give you a personalized answer is on a quick call. It only takes 15 minutes and I can tell you exactly what you qualify for. Click "Get Pre-Approved" to schedule a time that works for you!';
+        }
+        
+        addMessage(response);
+      }, 1000);
+    }
+
+    chatbotSend?.addEventListener('click', handleChatbotMessage);
+    chatbotInput?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handleChatbotMessage();
+      }
+    });
+  </script>
+</body>
+</html>
