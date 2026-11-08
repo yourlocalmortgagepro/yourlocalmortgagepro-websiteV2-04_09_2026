@@ -1,0 +1,733 @@
+---
+import Layout from '../layouts/Layout.astro';
+const CAL = 'https://calendly.com/dennisfieldsmortgagepro';
+const APPLY = 'https://dennisfieldsmortgagepro.com';
+---
+
+<Layout title="What's Your Real Rate? Debt Consolidation Calculator">
+<div class="rr">
+
+  <!-- Hero -->
+  <section class="rr-hero">
+    <div class="rr-wrap rr-hero-row">
+      <div class="rr-hero-copy">
+        <span class="rr-chip">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+          Free, private, no credit check
+        </span>
+        <h1>What's Your <span class="rr-lime">Real Rate?</span></h1>
+        <p class="rr-lead">Your mortgage rate is only part of the story. Add in your car loan, credit cards and HELOC, and you'll see the rate you're <strong>really</strong> paying. Then compare it to one new mortgage, side by side.</p>
+        <div class="rr-btns">
+          <a class="rr-btn rr-btn-lime" href="#calc">Find my Real Rate</a>
+          <a class="rr-btn rr-btn-ghost-light" href={CAL} target="_blank" rel="noopener">Talk to Dennis</a>
+        </div>
+        <ul class="rr-checks">
+          <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9f59a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>About 2 minutes</li>
+          <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9f59a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Nothing is saved or sent</li>
+          <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9f59a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Honest math, good or bad</li>
+        </ul>
+      </div>
+      <div class="rr-snap">
+        <p class="rr-eyebrow">Live snapshot</p>
+        <p class="rr-muted rr-sm">Updates as you type below</p>
+        <div class="rr-snap-grid">
+          <div class="rr-tile rr-tile-dark"><p>Today's Real Rate</p><p class="rr-big" data-out="todayRate">—</p></div>
+          <div class="rr-tile rr-tile-lime"><p>New mortgage rate</p><p class="rr-big" data-out="newRate">—</p></div>
+        </div>
+        <div class="rr-lines">
+          <div><span>Total debt</span><strong data-out="totalBalance">—</strong></div>
+          <div><span>Monthly payments today</span><strong data-out="currentInitial">—</strong></div>
+          <div><span>One new payment</span><strong data-out="newInitial">—</strong></div>
+        </div>
+        <p class="rr-xs rr-muted">Example numbers to start. Estimates only, not a loan offer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="rr-sec">
+    <div class="rr-wrap">
+      <p class="rr-eyebrow">Why this matters</p>
+      <h2>Three things most homeowners never get shown</h2>
+      <div class="rr-cards3">
+        <div class="rr-card">
+          <div class="rr-icon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg></div>
+          <h3>Your rates stack up</h3>
+          <p>A 4.25% mortgage feels great. But with a 22.9% credit card and a 9% HELOC on top, your blended rate can be a lot higher than you think.</p>
+        </div>
+        <div class="rr-card">
+          <div class="rr-icon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 8h14"></path><path d="m5 8-3 7a4 4 0 0 0 6 0Z"></path><path d="m19 8-3 7a4 4 0 0 0 6 0Z"></path></svg></div>
+          <h3>Lower payment isn't always cheaper</h3>
+          <p>Stretching debt over 30 years can drop your payment and still cost more in total interest. This calculator shows you both, so you decide with the full picture.</p>
+        </div>
+        <div class="rr-card">
+          <div class="rr-icon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg></div>
+          <h3>Payments change over time</h3>
+          <p>Your car loan ends. Cards get paid down. We show your payments at month 13 and month 61, so you see the whole road and not just today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section id="calc" class="rr-sec">
+    <div class="rr-wrap">
+      <div class="rr-head-row">
+        <div>
+          <p class="rr-eyebrow">The calculator</p>
+          <h2>Run your numbers in 3 steps</h2>
+          <p class="rr-muted">We filled in an example. Swap in your own numbers from your statements.</p>
+        </div>
+        <div class="rr-btns">
+          <button type="button" class="rr-btn rr-btn-dark" data-action="reset">Reset example</button>
+          <button type="button" class="rr-btn rr-btn-ghost" data-action="clear">Clear inputs</button>
+        </div>
+      </div>
+
+      <div class="rr-grid2">
+        <div class="rr-panel">
+          <h3 class="rr-step"><span>1</span>Your home and mortgage</h3>
+          <div class="rr-fields">
+            <div>
+              <label class="rr-lbl">Estimated home value<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-field="homeValue"><span class="rr-sfx">$</span></span></label>
+              <p class="rr-err" data-out="errHome" data-show="errHome" hidden></p>
+            </div>
+            <div>
+              <label class="rr-lbl">Current mortgage balance<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-field="mortgageBalance"><span class="rr-sfx">$</span></span></label>
+              <p class="rr-err" data-out="errBalance" data-show="errBalance" hidden></p>
+            </div>
+            <label class="rr-lbl">Mortgage interest rate<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" max="50" step="0.01" data-field="mortgageRate"><span class="rr-sfx">%</span></span></label>
+            <label class="rr-lbl">Months remaining<span class="rr-in"><input class="rr-fld" type="number" inputmode="numeric" min="1" max="600" data-field="mortgageMonths"><span class="rr-sfx">mo</span></span></label>
+          </div>
+          <div class="rr-note-box">
+            <p class="rr-sm rr-muted">Estimated monthly principal and interest</p>
+            <p class="rr-mid" data-out="mortgagePmt">—</p>
+          </div>
+        </div>
+
+        <div class="rr-panel">
+          <h3 class="rr-step"><span>3</span>One new mortgage</h3>
+          <div class="rr-fields">
+            <label class="rr-lbl">New fixed interest rate<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" max="50" step="0.01" data-field="newRate"><span class="rr-sfx">%</span></span></label>
+            <label class="rr-lbl">Loan term<span class="rr-in"><input class="rr-fld" type="number" inputmode="numeric" min="1" max="600" data-field="newMonths"><span class="rr-sfx">mo</span></span></label>
+            <label class="rr-lbl">Estimated closing costs<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-field="closingCosts"><span class="rr-sfx">$</span></span></label>
+            <label class="rr-lbl">Planning loan-to-value limit<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" max="200" data-field="ltvLimit"><span class="rr-sfx">%</span></span></label>
+          </div>
+          <div class="rr-toggle-row">
+            <div>
+              <p class="rr-b">Roll closing costs into the loan</p>
+              <p class="rr-xs rr-muted">Off means you pay them at closing.</p>
+            </div>
+            <button type="button" class="rr-sw" role="switch" aria-checked="true" aria-label="Roll closing costs into the loan" data-action="finance"><span class="rr-trk"><span class="rr-knob"></span></span></button>
+          </div>
+          <div class="rr-note-box">
+            <p class="rr-sm rr-muted">New mortgage balance</p>
+            <p class="rr-mid" data-out="newBalance">—</p>
+            <p class="rr-xs rr-muted">Sample rate only. Not a current offer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rr-panel rr-mt">
+        <div class="rr-head-row">
+          <div>
+            <h3 class="rr-step"><span>2</span>Your other debts</h3>
+            <p class="rr-muted rr-sm">Car loans, credit cards, personal loans, second mortgages or HELOCs.</p>
+          </div>
+          <button type="button" class="rr-btn rr-btn-dark" data-action="add">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>Add a debt
+          </button>
+        </div>
+        <div class="rr-empty" data-show="noDebts" hidden>No other debts yet. Click "Add a debt" to include one.</div>
+        <div id="rr-debts" class="rr-debts"></div>
+      </div>
+
+      <div class="rr-alert" role="alert" data-show="invalid" hidden>
+        <strong>Almost there.</strong> Check these to see your results:
+        <ul id="rr-errors"></ul>
+      </div>
+
+      <div data-show="valid">
+        <h2 class="rr-results-h">Your results</h2>
+        <div class="rr-cards4">
+          <div class="rr-tile rr-tile-dark"><p>Today's Real Rate</p><p class="rr-big" data-out="todayRate">—</p><p class="rr-xs">Blended rate on all your debt right now</p></div>
+          <div class="rr-tile rr-tile-white"><p>Projected Real Rate, keep current</p><p class="rr-big" data-out="currentProjectedRate">—</p><p class="rr-xs">Blended over the life of your debts</p></div>
+          <div class="rr-tile rr-tile-lime"><p>Projected Real Rate, new mortgage</p><p class="rr-big" data-out="newRate">—</p><p class="rr-xs">One fixed rate on one loan</p></div>
+          <div class="rr-tile rr-tile-white"><p>Monthly payment change</p><p class="rr-big" data-out="monthlyChange">—</p><p class="rr-xs" data-out="monthlyChangeWord"></p></div>
+        </div>
+
+        <div class="rr-panel rr-mt rr-flush">
+          <div class="rr-pad">
+            <h3 class="rr-h3">Keep current debts vs. one new mortgage</h3>
+            <p class="rr-muted rr-sm">Monthly savings and total interest are two different things. Look at both.</p>
+          </div>
+          <div class="rr-scroll">
+            <table class="rr-tbl">
+              <thead><tr><th scope="col">Measure</th><th scope="col">Keep current debts</th><th scope="col">New mortgage</th></tr></thead>
+              <tbody>
+                <tr><td>Projected Real Rate</td><td><strong data-out="currentProjectedRate"></strong></td><td><strong data-out="newRate"></strong></td></tr>
+                <tr><td>Monthly principal and interest to start</td><td data-out="currentInitial"></td><td data-out="newInitial"></td></tr>
+                <tr><td>Total paid, first 12 months</td><td data-out="current12"></td><td><span data-out="new12"></span><div class="rr-xs rr-muted" data-out="year1Note"></div></td></tr>
+                <tr><td>Payment at month 13</td><td data-out="current13"></td><td data-out="new13"></td></tr>
+                <tr><td>Payment at month 61</td><td data-out="current61"></td><td data-out="new61"></td></tr>
+                <tr><td>Interest left to pay</td><td data-out="currentInterest"></td><td data-out="proposedInterest"></td></tr>
+                <tr><td>Interest plus closing costs</td><td data-out="currentInterest"></td><td><span data-out="proposedInterestCosts"></span><div class="rr-xs rr-b" data-out="diffText" data-tone="diff"></div></td></tr>
+                <tr><td>Debt-free in</td><td data-out="currentTimeline"></td><td data-out="newTimeline"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Extra principal -->
+        <div class="rr-panel rr-mt rr-feature">
+          <div class="rr-x-row">
+            <div class="rr-x-left">
+              <span class="rr-chip">Optional power move</span>
+              <h3 class="rr-h3 rr-x-h">Put your monthly savings toward principal</h3>
+              <p class="rr-muted">What if you kept paying close to what you pay today, and sent the difference straight to principal? We start with your full monthly savings. Change it to any amount you're comfortable with.</p>
+              <label class="rr-lbl rr-mt-sm">Extra principal payment each month<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-field="extra"><span class="rr-sfx">$/mo</span></span></label>
+              <div class="rr-btns rr-mt-xs">
+                <button type="button" class="rr-pill" data-action="useSavings">Use my full savings (<span data-out="savingsLabel"></span>)</button>
+                <button type="button" class="rr-pill" data-action="useZero">Set to $0</button>
+              </div>
+              <p class="rr-err" data-show="noSavings" hidden>With these numbers the new payment isn't lower than today, so there's no savings to redirect. You can still try any extra amount.</p>
+              <div class="rr-note-box rr-lines">
+                <div><span>New mortgage payment</span><strong data-out="newInitial"></strong></div>
+                <div><span>Plus extra principal</span><strong data-out="extraPay"></strong></div>
+                <div class="rr-total"><span>Your total monthly payment</span><strong data-out="totalPay"></strong></div>
+                <div><span>What you pay today</span><strong data-out="currentInitial"></strong></div>
+              </div>
+            </div>
+            <div class="rr-x-right">
+              <div class="rr-tile rr-tile-dark"><p>Paid off in</p><p class="rr-big" data-out="payoffYears">—</p><p class="rr-xs rr-lime rr-b" data-out="timeSaved"></p></div>
+              <div class="rr-tile rr-tile-lime"><p>Interest saved on new loan</p><p class="rr-big" data-out="interestSaved">—</p><p class="rr-xs">vs. paying only the regular payment</p></div>
+              <div class="rr-x-list rr-lines">
+                <div><span>Total interest, regular payment</span><strong data-out="proposedInterest"></strong></div>
+                <div><span>Total interest, with extra principal</span><strong data-out="xInterest"></strong></div>
+                <div><span>Interest plus closing costs, with extra</span><strong data-out="xInterestCosts"></strong></div>
+                <div><span>Keep current debts, total interest</span><strong data-out="currentInterest"></strong></div>
+                <div><span class="rr-b">Compared with keeping current debts</span><strong data-out="vsText" data-tone="vs"></strong></div>
+              </div>
+              <p class="rr-xs rr-muted rr-span">Extra payments are voluntary, and you can stop anytime. Your required payment stays the same. Check your loan terms and confirm the extra goes to principal.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rr-grid2 rr-mt">
+          <div class="rr-panel">
+            <h3 class="rr-h3">Balance, equity and loan-to-value</h3>
+            <div class="rr-lines rr-ruled">
+              <div><span>New mortgage balance</span><strong data-out="newBalance"></strong></div>
+              <div><span>Cash for closing costs at closing</span><strong data-out="upfront"></strong></div>
+              <div><span>Home equity today</span><strong data-out="equityNow"></strong></div>
+              <div><span>Home equity after</span><strong data-out="equityAfter"></strong></div>
+              <div><span>New loan-to-value</span><strong data-out="ltv"></strong></div>
+              <div><span>Planning LTV check</span><strong data-out="ltvText" data-tone="ltv"></strong></div>
+            </div>
+          </div>
+          <div class="rr-panel">
+            <h3 class="rr-h3">The honest fine print</h3>
+            <ul class="rr-bullets">
+              <li>Your current payments drop as each debt gets paid off. The month 13 and month 61 rows show that.</li>
+              <li>Rolling credit cards or car loans into a mortgage ties that debt to your home. Missing mortgage payments can put your home at risk.</li>
+              <li>A lower payment or rate doesn't always mean less total interest. A longer payoff can cost more.</li>
+              <li>The planning LTV limit is just a planning number, not an approval decision.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <details class="rr-details rr-mt">
+        <summary>How we do the math, and your privacy<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <p><strong>Today's Real Rate</strong> takes each balance times its rate, adds them up, and divides by your total debt.</p>
+        <p><strong>Projected Real Rate</strong> builds a month-by-month payoff schedule for every account and weights each rate by the balance left that month. A debt stops counting once it's paid off. These are custom measures. They are not APRs, they don't include fees, and they don't promise savings.</p>
+        <p><strong>Assumptions:</strong> rates stay the same; interest is figured monthly; no new charges; money freed up from paid-off debts isn't moved to other debts. Taxes, insurance, HOA dues and mortgage insurance are not included. Closing costs count once. If rolled in, they're added to the loan and gain interest. Equity only subtracts debt secured by the home.</p>
+        <p><strong>Private by design:</strong> the math runs in your browser. This calculator doesn't collect, send or store anything you type.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="rr-sec">
+    <div class="rr-wrap">
+      <div class="rr-cta">
+        <div class="rr-cta-copy">
+          <h2>Just imagine knowing <span class="rr-lime">for sure</span> if this move saves you money.</h2>
+          <p>This page gives you estimates. In a free 15-minute Real Rate Review, I'll check your numbers against real loan options and give you a straight answer, even if that answer is "keep what you have."</p>
+          <p class="rr-b rr-white">Would you be open to a quick call to find out?</p>
+          <div class="rr-btns">
+            <a class="rr-btn rr-btn-lime" href={CAL} target="_blank" rel="noopener">Book my free Real Rate Review</a>
+            <a class="rr-btn rr-btn-ghost-light" href={APPLY} target="_blank" rel="noopener">Start my application</a>
+          </div>
+          <p class="rr-sm">Rather talk now? Call or text <a href="tel:+13368835602" class="rr-lime rr-b">336-883-5602</a></p>
+        </div>
+        <ol class="rr-steps">
+          <li><span>1</span><div><strong>We look at your goals.</strong> Lower payment, faster payoff, or cash for a project.</div></li>
+          <li><span>2</span><div><strong>I run real options.</strong> FHA, VA, conventional and more, based on your situation.</div></li>
+          <li><span>3</span><div><strong>You decide.</strong> No pressure. You leave with clear numbers either way.</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="rr-sec rr-sec-tight">
+    <div class="rr-wrap rr-about">
+      <div class="rr-photo">
+        <img src="/dennis-fields-real-rate.jpg" alt="Dennis Fields, mortgage loan officer" width="800" height="1200" loading="lazy">
+        <div><p class="rr-b rr-name">Dennis Fields</p><p class="rr-sm">Mortgage Loan Officer · NMLS #1407951</p></div>
+      </div>
+      <div class="rr-about-copy">
+        <p class="rr-eyebrow">Meet your loan officer</p>
+        <h2>Hi, I'm Dennis. I'll show you the math, not a sales pitch.</h2>
+        <p>I've helped families with home loans for over 20 years. I'm based in Greensboro and serve homeowners and buyers across North Carolina, South Carolina and Virginia.</p>
+        <p>I work with first-time buyers, veterans and military families, people who've been turned down before, and homeowners who want to get high-interest debt under control. If a new loan doesn't help you, I'll tell you.</p>
+        <div class="rr-btns">
+          <a class="rr-btn rr-btn-dark" href={CAL} target="_blank" rel="noopener">Book a time</a>
+          <a class="rr-btn rr-btn-ghost" href="https://maps.app.goo.gl/zuYBrQ4WReoxDLSG7" target="_blank" rel="noopener">Read my Google reviews</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="rr-sec">
+    <div class="rr-wrap rr-narrow">
+      <h2 class="rr-center">Common questions</h2>
+      <div class="rr-faq">
+        <details class="rr-details"><summary>Is my Real Rate the same as an APR?<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary><p>No. Your Real Rate is a simple way to see the blended interest rate on all your debts together. An APR is a legal disclosure that includes certain loan fees. You'll get official APRs on any real loan estimate.</p></details>
+        <details class="rr-details"><summary>Does this check my credit or save my info?<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary><p>No and no. The math runs in your browser. Nothing you type is collected, sent or stored, and there's no credit check.</p></details>
+        <details class="rr-details"><summary>I've been turned down before. Is it still worth a look?<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary><p>Often, yes. Different loan programs have different guidelines, and your situation may have changed. A conversation costs nothing, and I'll be straight with you about what's possible and what isn't.</p></details>
+        <details class="rr-details"><summary>Is rolling debt into my mortgage always a good idea?<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary><p>No. It can lower your payment and your rate, but it can also raise total interest and puts the debt on your home. That's why this calculator shows both sides. The right answer depends on your goals.</p></details>
+        <details class="rr-details"><summary>What areas do you serve?<svg class="rr-chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></summary><p>I'm licensed in North Carolina, South Carolina and Virginia, and based in Greensboro in the Triad.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="rr-legal">
+    <div class="rr-wrap">
+      <div class="rr-legal-top">
+        <p>Dennis Fields, Mortgage Loan Officer, NMLS #1407951 · Movement Mortgage, LLC, NMLS #39179 · Licensed in NC, SC and VA</p>
+        <div class="rr-eho">
+          <svg role="img" aria-label="Equal Housing Lender" width="44" height="44" viewBox="0 0 54 54" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M5 25 27 7l22 18"></path><path d="M11 21v26h32V21"></path><path d="M19 29h16" stroke-linecap="round"></path><path d="M19 37h16" stroke-linecap="round"></path></svg>
+          <span>EQUAL HOUSING<br>LENDER</span>
+        </div>
+      </div>
+      <p>All loans subject to approval. Equal Housing Lender. Educational estimates only. This is not a loan offer, approval, or commitment to lend, and not a rate lock. Rates, terms and programs are subject to change without notice and depend on credit, property, income and other factors. Rolling unsecured debt into a mortgage secures it with your home. Verify licensing at <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener">nmlsconsumeraccess.org</a>.</p>
+    </div>
+  </section>
+</div>
+</Layout>
+
+<style is:global>
+  .rr{--g:#153f32;--g2:#0b261e;--cream:#fbf7e9;--lime:#d9f59a;--lime2:#eef8d0;--ink:#13201b;--mut:#4a5751;--line:#e3e8e4;--red:#b42318;--ok:#1d6b45;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+  .rr *{box-sizing:border-box}
+  .rr [hidden]{display:none!important}
+  .rr h1,.rr h2,.rr h3,.rr p{margin:0}
+  .rr-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .rr-narrow{max-width:860px}
+  .rr-sec{padding:64px 0 24px}.rr-sec-tight{padding-top:24px}
+  .rr h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-top:10px}
+  .rr-eyebrow{font-weight:700;color:#3f6b58;font-size:14px;text-transform:uppercase;letter-spacing:.08em}
+  .rr-muted{color:var(--mut)}.rr-sm{font-size:14px}.rr-xs{font-size:13px}.rr-b{font-weight:700}.rr-white{color:#fff}.rr-lime{color:var(--lime)}
+  .rr-center{text-align:center}
+  .rr-mt{margin-top:20px}.rr-mt-sm{margin-top:18px}.rr-mt-xs{margin-top:10px}
+  .rr-btns{display:flex;flex-wrap:wrap;gap:12px}
+  .rr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;border:2px solid transparent;font-family:inherit}
+  .rr-btn-dark{background:var(--g);color:#fff}.rr-btn-dark:hover{background:var(--g2)}
+  .rr-btn-lime{background:var(--lime);color:var(--g)}.rr-btn-lime:hover{background:#c8ec7a}
+  .rr-btn-ghost{background:transparent;color:var(--g);border-color:var(--g)}.rr-btn-ghost:hover{background:var(--g);color:#fff}
+  .rr-btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.rr-btn-ghost-light:hover{background:#fff;color:var(--g)}
+  .rr-btn:focus-visible,.rr-pill:focus-visible,.rr-fld:focus{outline:3px solid #9fd36a;outline-offset:2px}
+  .rr-chip{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--g);font-weight:700;font-size:13px;padding:7px 14px;border-radius:999px}
+  /* hero */
+  .rr-hero{background:var(--g);color:#fff;padding:56px 0 88px}
+  .rr-hero-row{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+  .rr-hero-copy{flex:999 1 520px;min-width:0}
+  .rr-hero h1{margin-top:22px;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+  .rr-lead{margin-top:22px!important;font-size:20px;line-height:1.55;color:#e3efe8;max-width:600px}
+  .rr-lead strong{color:#fff}
+  .rr-hero .rr-btns{margin-top:32px}
+  .rr-checks{list-style:none;padding:0;margin:32px 0 0;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:15px;color:#cfe3d8}
+  .rr-checks li{display:flex;align-items:center;gap:8px}
+  .rr-snap{flex:1 1 340px;min-width:0;background:var(--cream);color:var(--ink);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+  .rr-snap .rr-sm{margin-top:4px}
+  .rr-snap-grid{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .rr-snap .rr-lines{margin-top:16px;border-top:1px solid #e0e4dc;padding-top:14px}
+  .rr-snap>.rr-xs{margin-top:14px}
+  /* tiles */
+  .rr-tile{border-radius:18px;padding:18px 20px}
+  .rr-tile p:first-child{font-size:14px}
+  .rr-tile .rr-xs{margin-top:6px}
+  .rr-big{margin-top:6px!important;font-size:clamp(26px,3vw,34px);font-weight:800;line-height:1.1}
+  .rr-tile-dark{background:var(--g);color:#fff}.rr-tile-dark p:first-child,.rr-tile-dark .rr-xs{color:#cfe3d8}
+  .rr-tile-dark .rr-lime{color:var(--lime)}
+  .rr-tile-lime{background:var(--lime);color:var(--g)}.rr-tile-lime p:first-child,.rr-tile-lime .rr-xs{color:#2c4a3d}
+  .rr-tile-white{background:#fff;border:1px solid var(--line);color:var(--g)}.rr-tile-white p:first-child,.rr-tile-white .rr-xs{color:var(--mut)}
+  /* lines */
+  .rr-lines{display:flex;flex-direction:column;gap:10px;font-size:15px}
+  .rr-lines>div{display:flex;justify-content:space-between;gap:12px}
+  .rr-lines>div>span{color:var(--mut)}
+  .rr-lines strong{text-align:right}
+  .rr-ruled{gap:0;margin-top:12px}.rr-ruled>div{padding:12px 0;border-bottom:1px solid #edf0ec}.rr-ruled>div:last-child{border:0}
+  /* cards */
+  .rr-cards3{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .rr-card{background:#fff;border-radius:20px;padding:28px;border:1px solid var(--line)}
+  .rr-card h3{margin-top:18px;font-size:20px;font-weight:800}
+  .rr-card p{margin-top:10px;color:#3d4a44;line-height:1.6;font-size:16px}
+  .rr-icon{width:48px;height:48px;border-radius:14px;background:var(--lime);display:flex;align-items:center;justify-content:center;color:var(--g)}
+  /* calc */
+  .rr-head-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+  .rr-head-row .rr-muted{margin-top:8px}
+  .rr-grid2{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .rr-grid2.rr-mt{margin-top:20px}
+  .rr-panel{background:#fff;border-radius:22px;padding:28px;border:1px solid var(--line)}
+  .rr-flush{padding:0;overflow:hidden}.rr-pad{padding:24px 24px 16px}.rr-pad .rr-sm{margin-top:6px}
+  .rr-feature{border:2px solid var(--g);padding:clamp(20px,3vw,32px)}
+  .rr-step{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:800;color:var(--g)}
+  .rr-step span{width:34px;height:34px;border-radius:50%;background:var(--g);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+  .rr-h3{font-size:20px;font-weight:800;color:var(--g)}
+  .rr-fields{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .rr-lbl{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:#2b3a34}
+  .rr-in{position:relative;display:block}
+  .rr-fld{width:100%;height:46px;border:1px solid #c7d2cb;border-radius:10px;background:#fff;padding:0 52px 0 14px;font:500 16px Inter,system-ui,sans-serif;color:var(--ink)}
+  .rr-fld[type=text]{padding-right:14px}
+  .rr-sfx{position:absolute;right:14px;top:13px;font-size:13px;color:#5b6660;pointer-events:none}
+  .rr-err{margin-top:6px!important;font-size:13px;color:var(--red)}
+  .rr-note-box{margin-top:18px;background:var(--lime2);border-radius:14px;padding:16px 18px}
+  .rr-mid{margin-top:4px!important;font-size:26px;font-weight:800;color:var(--g)}
+  .rr-toggle-row{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 18px}
+  .rr-sw{width:64px;height:44px;padding:6px;border:0;background:transparent;cursor:pointer;flex:none}
+  .rr-trk{display:block;position:relative;width:52px;height:32px;border-radius:999px;background:#aeb8b2;transition:background .15s}
+  .rr-knob{position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .15s}
+  .rr-sw[aria-checked=true] .rr-trk{background:var(--g)}.rr-sw[aria-checked=true] .rr-knob{left:24px}
+  .rr-sw:focus-visible .rr-trk{outline:3px solid #9fd36a;outline-offset:2px}
+  .rr-pill{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #c7d2cb;background:#fff;color:#2b3a34;font:600 14px Inter,system-ui,sans-serif;cursor:pointer}
+  .rr-pill[aria-pressed=true]{background:var(--g);border-color:var(--g);color:#fff}
+  .rr-empty{margin-top:20px;border:2px dashed #c7d2cb;border-radius:16px;padding:28px;text-align:center;color:var(--mut)}
+  .rr-debts{margin-top:20px;display:flex;flex-direction:column;gap:16px}
+  .rr-debt{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fcfdfb}
+  .rr-debt-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .rr-debt-top strong{color:var(--g);font-size:16px}
+  .rr-del{width:44px;height:44px;border-radius:12px;border:0;background:transparent;color:var(--red);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+  .rr-del:hover{background:#fdeceb}
+  .rr-debt-grid{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;align-items:end}
+  .rr-seg{display:flex;gap:6px}
+  .rr-sec-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:12px;padding:2px 4px 2px 14px;background:#fff;font-size:14px;font-weight:600;color:#2b3a34}
+  .rr-dnote{margin-top:14px!important;border-radius:12px;padding:12px 14px;font-size:14px;background:#ecf6ef;color:#1d4a37}
+  .rr-dnote.rr-bad{background:#fdeceb;color:#8a1c13;font-weight:600}
+  .rr-alert{margin-top:20px;background:#fdeceb;color:#8a1c13;border-radius:18px;padding:20px 24px;font-size:16px}
+  .rr-alert ul{margin:8px 0 0;padding-left:20px;line-height:1.7;list-style:disc}
+  .rr-results-h{margin-top:40px!important}
+  .rr-cards4{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .rr-scroll{overflow-x:auto}
+  .rr-tbl{width:100%;min-width:720px;border-collapse:collapse;font-size:15px}
+  .rr-tbl th{background:var(--g);color:#fff;text-align:right;padding:14px 18px;font-weight:700}
+  .rr-tbl th:first-child,.rr-tbl td:first-child{text-align:left}
+  .rr-tbl td{padding:14px 18px;border-top:1px solid var(--line);text-align:right}
+  .rr-tbl tr:nth-child(even) td{background:#f8faf6}
+  .rr-tone-up{color:var(--red)}.rr-tone-down{color:var(--ok)}.rr-tone-unknown{color:#8a1c13;font-weight:500}
+  .rr-x-row{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+  .rr-x-left{flex:1 1 320px;min-width:0}
+  .rr-x-left>.rr-muted{margin-top:10px;font-size:16px;line-height:1.6}
+  .rr-x-h{margin-top:14px;font-size:clamp(1.4rem,2.4vw,1.8rem);line-height:1.2}
+  .rr-x-left .rr-err{margin-top:10px!important;font-size:14px}
+  .rr-total{border-top:1px solid #cfe0a8;padding-top:8px}.rr-total span{color:var(--g)!important;font-weight:700}.rr-total strong{color:var(--g);font-size:18px}
+  .rr-x-right{flex:1 1 340px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .rr-x-right .rr-big{font-size:clamp(22px,2.2vw,28px);overflow-wrap:anywhere}
+  .rr-x-list{grid-column:1/-1;background:var(--cream);border-radius:18px;padding:6px 18px;gap:0}
+  .rr-x-list>div{padding:12px 0;border-bottom:1px solid #e6e1cd}.rr-x-list>div:last-child{border:0}
+  .rr-span{grid-column:1/-1;line-height:1.55}
+  .rr-bullets{margin:14px 0 0;padding-left:20px;color:#3d4a44;line-height:1.65;font-size:15px;list-style:disc;display:flex;flex-direction:column;gap:8px}
+  .rr-details{background:#fff;border:1px solid #dfe5df;border-radius:14px;padding:0 22px}
+  .rr-details summary{cursor:pointer;list-style:none;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:700;font-size:17px;color:var(--g)}
+  .rr-details summary::-webkit-details-marker{display:none}
+  .rr-details[open] .rr-chev{transform:rotate(180deg)}
+  .rr-details p{margin:0 0 20px;color:#3d4a44;line-height:1.65;font-size:16px}
+  .rr-faq{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+  /* cta */
+  .rr-cta{background:var(--g);color:#e3efe8;border-radius:28px;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+  .rr-cta-copy{flex:999 1 460px;min-width:0}
+  .rr-cta h2{color:#fff;margin:0;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.1}
+  .rr-cta-copy>p{margin-top:16px;font-size:18px;line-height:1.6}
+  .rr-cta-copy .rr-btns{margin-top:26px}
+  .rr-cta-copy .rr-sm{font-size:15px;color:#cfe3d8}
+  .rr-steps{flex:1 1 300px;min-width:0;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .rr-steps li{background:rgba(255,255,255,.08);border-radius:18px;padding:18px 20px;display:flex;gap:14px;line-height:1.5;color:#fff}
+  .rr-steps li>span{flex:none;width:32px;height:32px;border-radius:50%;background:var(--lime);color:var(--g);font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+  /* about */
+  .rr-about{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}
+  .rr-photo{flex:1 1 280px;min-width:0;max-width:420px;background:var(--lime);border-radius:24px;overflow:hidden}
+  .rr-photo img{display:block;width:100%;height:420px;object-fit:cover;object-position:center 20%}
+  .rr-photo>div{padding:18px 22px 22px;color:#2c4a3d}
+  .rr-name{font-size:22px;color:var(--g)}
+  .rr-about-copy{flex:999 1 480px;min-width:0}
+  .rr-about-copy>p:not(.rr-eyebrow){margin-top:14px;font-size:17px;line-height:1.7;color:#3d4a44}
+  .rr-about-copy .rr-btns{margin-top:24px}
+  /* legal */
+  .rr-legal{background:#0f2f25;color:#d6e6dd;padding:36px 0;font-size:14px;line-height:1.7}
+  .rr-legal a{color:var(--lime)}
+  .rr-legal-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:16px;margin-bottom:16px;color:#fff;font-weight:600}
+  .rr-eho{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:13px;line-height:1.2}
+</style>
+
+<script>
+  type Debt = { id: number; name: string; type: 'installment' | 'revolving'; balance: string; rate: string; payment: string; secured: boolean };
+  type V = Record<string, string>;
+
+  const MAX = 600;
+  const defaults = () => ({ homeValue: '475000', mortgageBalance: '275000', mortgageRate: '4.25', mortgageMonths: '276', newRate: '6.5', newMonths: '360', closingCosts: '7500', ltvLimit: '80' });
+  const blank = () => ({ homeValue: '', mortgageBalance: '', mortgageRate: '', mortgageMonths: '', newRate: '', newMonths: '', closingCosts: '', ltvLimit: '80' });
+  const exampleDebts = (): Debt[] => [
+    { id: 1, name: 'Auto loan', type: 'installment', balance: '18500', rate: '7.9', payment: '451', secured: false },
+    { id: 2, name: 'Credit card', type: 'revolving', balance: '12000', rate: '22.9', payment: '400', secured: false },
+    { id: 3, name: 'HELOC', type: 'revolving', balance: '30000', rate: '9.25', payment: '350', secured: true },
+  ];
+
+  const state = { v: defaults() as V, finance: true, debts: exampleDebts(), extra: null as string | null };
+
+  const num = (x: unknown) => { const n = Number(x); return isFinite(n) && n > 0 ? n : 0; };
+  const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const money = (n: number) => (isFinite(n) ? fmt.format(n) : '—');
+  const pct = (n: number) => (isFinite(n) ? n.toFixed(2) + '%' : '—');
+  const pmt = (b: number, rate: number, m: number) => {
+    if (b <= 0 || m <= 0) return 0;
+    const r = rate / 1200;
+    return r === 0 ? b / m : (b * r) / (1 - Math.pow(1 + r, -m));
+  };
+  type Acct = { balance: unknown; rate: unknown; months?: unknown; payment?: unknown; byTerm?: boolean; secured?: boolean };
+  function sim(a: Acct, extra = 0) {
+    let b = num(a.balance);
+    const rate = num(a.rate), r = rate / 1200;
+    let sched = a.byTerm ? pmt(b, rate, Math.floor(num(a.months))) : num(a.payment);
+    if (extra > 0 && sched > 0) sched += extra;
+    const rows: { opening: number; paid: number; rate: number }[] = [];
+    if (b <= 0) return { rows, totalInterest: 0, payoff: 0, valid: true, scheduled: 0 };
+    if (sched <= 0 || (r > 0 && sched <= b * r + 1e-6)) return { rows, totalInterest: Infinity, payoff: Infinity, valid: false, scheduled: sched };
+    let tot = 0;
+    for (let m = 1; m <= MAX && b > 0.005; m++) {
+      const o = b, i = o * r, paid = Math.min(sched, o + i);
+      b = Math.max(0, o - Math.max(0, paid - i));
+      tot += i;
+      rows.push({ opening: o, paid, rate });
+    }
+    const ok = b <= 0.005;
+    return { rows, totalInterest: ok ? tot : Infinity, payoff: ok ? rows.length : Infinity, valid: ok, scheduled: sched };
+  }
+  const months = (n: number) => (isFinite(n) ? `${n} months (${Math.round((n / 12) * 10) / 10} yrs)` : 'No payoff at entered payment');
+  const yrsMo = (n: number) => {
+    if (!isFinite(n)) return '—';
+    const y = Math.floor(n / 12), m = n % 12, parts: string[] = [];
+    if (y) parts.push(y + (y === 1 ? ' yr' : ' yrs'));
+    if (m || !y) parts.push(m + (m === 1 ? ' mo' : ' mos'));
+    return parts.join(' ');
+  };
+
+  function compute() {
+    const v = state.v, debts = state.debts;
+    const first: Acct = { byTerm: true, balance: v.mortgageBalance, rate: v.mortgageRate, months: v.mortgageMonths, secured: true };
+    const accounts: Acct[] = [first, ...debts];
+    const sims = accounts.map((a) => sim(a));
+    const totalBalance = accounts.reduce((s, a) => s + num(a.balance), 0);
+    const todayRate = totalBalance ? accounts.reduce((s, a) => s + num(a.balance) * num(a.rate), 0) / totalBalance : 0;
+    let w = 0, o = 0;
+    sims.forEach((sm) => sm.rows.forEach((row) => { w += row.opening * row.rate; o += row.opening; }));
+    const currentProjectedRate = o ? w / o : 0;
+    const newBalance = totalBalance + (state.finance ? num(v.closingCosts) : 0);
+    const newLoan: Acct = { byTerm: true, balance: newBalance, rate: v.newRate, months: v.newMonths };
+    const newSim = sim(newLoan);
+    const currentInitial = sims.reduce((s, x) => s + x.scheduled, 0);
+    const newInitial = newSim.scheduled;
+    const curPay = (m: number) => sims.reduce((s, x) => s + (x.rows[m - 1]?.paid || 0), 0);
+    const newPay = (m: number) => newSim.rows[m - 1]?.paid || 0;
+    let current12 = 0, new12 = 0;
+    for (let i = 1; i <= 12; i++) { current12 += curPay(i); new12 += newPay(i); }
+    const hasBad = sims.some((x) => !x.valid);
+    const currentInterest = hasBad ? Infinity : sims.reduce((s, x) => s + x.totalInterest, 0);
+    const proposedInterest = newSim.totalInterest;
+    const proposedInterestCosts = proposedInterest + num(v.closingCosts);
+    const difference = proposedInterestCosts - currentInterest;
+    const currentTimeline = Math.max(0, ...sims.map((x) => x.payoff));
+    const securedNow = accounts.filter((a) => a.secured).reduce((s, a) => s + num(a.balance), 0);
+    const hv = num(v.homeValue);
+    const ltv = hv ? (newBalance / hv) * 100 : 0;
+    const ltvLimit = num(v.ltvLimit);
+    const y1 = new12 - current12;
+
+    // extra principal
+    const savings = Math.max(0, currentInitial - newInitial);
+    const savingsRounded = Math.round(savings);
+    const extraStr = state.extra === null ? String(savingsRounded) : state.extra;
+    const extra = num(extraStr);
+    const xSim = sim(newLoan, extra);
+    const xInterestCosts = xSim.totalInterest + num(v.closingCosts);
+    const xVs = xInterestCosts - currentInterest;
+    const monthsSaved = newSim.valid && xSim.valid ? newSim.payoff - xSim.payoff : 0;
+
+    // validation
+    const errors: string[] = [];
+    const errHome = hv <= 0 ? 'Enter a home value greater than $0.' : '';
+    const errBalance = hv > 0 && num(v.mortgageBalance) > hv * 2 ? 'That balance looks high for this home value. Please double-check it.' : '';
+    if (errHome) errors.push(errHome);
+    if (num(v.mortgageRate) > 50 || num(v.newRate) > 50) errors.push('Use an interest rate from 0% to 50%.');
+    if (num(v.mortgageMonths) < 1 || num(v.newMonths) < 1 || num(v.mortgageMonths) > MAX || num(v.newMonths) > MAX) errors.push('Use 1 to 600 months for months remaining and loan term.');
+    if (v.newRate === '') errors.push('Enter a new mortgage rate.');
+
+    const tone = (known: boolean, up: boolean) => (!known ? 'unknown' : up ? 'up' : 'down');
+    const out: Record<string, string> = {
+      todayRate: pct(todayRate),
+      currentProjectedRate: pct(currentProjectedRate),
+      newRate: pct(num(v.newRate)),
+      totalBalance: money(totalBalance),
+      mortgagePmt: money(pmt(num(v.mortgageBalance), num(v.mortgageRate), Math.floor(num(v.mortgageMonths)))),
+      newBalance: money(newBalance),
+      currentInitial: money(currentInitial),
+      newInitial: money(newInitial),
+      monthlyChange: money(Math.abs(currentInitial - newInitial)),
+      monthlyChangeWord: newInitial <= currentInitial ? 'Lower to start with one new payment' : 'Higher to start with one new payment',
+      current12: money(current12), new12: money(new12),
+      year1Note: y1 <= 0 ? `About ${money(-y1)} less in year one` : `About ${money(y1)} more in year one`,
+      current13: money(curPay(13)), new13: money(newPay(13)),
+      current61: money(curPay(61)), new61: money(newPay(61)),
+      currentInterest: hasBad ? 'Fix the flagged account' : money(currentInterest),
+      proposedInterest: money(proposedInterest),
+      proposedInterestCosts: money(proposedInterestCosts),
+      diffText: !isFinite(difference) ? 'Fix the flagged account above to compare totals' : difference > 0 ? `Costs ${money(difference)} more overall` : `Saves ${money(-difference)} overall`,
+      currentTimeline: months(currentTimeline),
+      newTimeline: newSim.valid ? months(newSim.payoff) : '—',
+      upfront: money(state.finance ? 0 : num(v.closingCosts)),
+      equityNow: money(hv - securedNow),
+      equityAfter: money(hv - newBalance),
+      ltv: pct(ltv),
+      ltvText: ltv > ltvLimit ? `Above your ${ltvLimit}% planning limit` : `Within your ${ltvLimit}% planning limit`,
+      savingsLabel: money(savingsRounded) + '/mo',
+      extraPay: money(extra),
+      totalPay: money(newInitial + extra),
+      payoffYears: xSim.valid ? yrsMo(xSim.payoff) : '—',
+      timeSaved: monthsSaved > 0 ? `${yrsMo(monthsSaved)} sooner than ${yrsMo(newSim.payoff)}` : `Same as the regular ${yrsMo(newSim.payoff)}`,
+      xInterest: money(xSim.totalInterest),
+      interestSaved: money(Math.max(0, proposedInterest - xSim.totalInterest)),
+      xInterestCosts: money(xInterestCosts),
+      vsText: !isFinite(xVs) ? 'Fix the flagged account above' : xVs > 0 ? `Costs ${money(xVs)} more` : `Saves ${money(-xVs)}`,
+      errHome, errBalance,
+    };
+    const show: Record<string, boolean> = {
+      errHome: !!errHome, errBalance: !!errBalance,
+      noDebts: debts.length === 0, invalid: errors.length > 0, valid: errors.length === 0, noSavings: savings <= 0,
+    };
+    const tones: Record<string, string> = {
+      diff: tone(isFinite(difference), difference > 0),
+      vs: tone(isFinite(xVs), xVs > 0),
+      ltv: ltv > ltvLimit ? 'up' : 'down',
+    };
+    const notes = debts.map((d) => {
+      const sm = sim(d);
+      let text: string;
+      if (num(d.balance) <= 0) text = 'Enter the balance owed to include this account.';
+      else if (num(d.payment) <= 0) text = 'Enter the monthly payment from your statement.';
+      else if (sm.valid && d.type === 'installment') text = `Paid off in about ${sm.payoff} months at this payment.`;
+      else if (sm.valid) text = `Paid off in about ${sm.payoff} months, if no new charges are added.`;
+      else text = 'This payment doesn’t cover the interest, so it never pays off. Raise the payment to see your full totals.';
+      return { text, ok: sm.valid };
+    });
+    return { out, show, tones, errors, notes, extraStr };
+  }
+
+  const root = document.querySelector('.rr') as HTMLElement;
+  const debtsEl = document.getElementById('rr-debts') as HTMLElement;
+  const errEl = document.getElementById('rr-errors') as HTMLElement;
+  const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+
+  function renderDebts() {
+    debtsEl.innerHTML = state.debts.map((d, i) => `
+      <div class="rr-debt" data-id="${d.id}">
+        <div class="rr-debt-top">
+          <strong>Account ${i + 1}</strong>
+          <button type="button" class="rr-del" data-action="remove" aria-label="Remove account ${i + 1}">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4h8v2"></path><path d="M19 6l-1 14H6L5 6"></path></svg>
+          </button>
+        </div>
+        <div class="rr-debt-grid">
+          <label class="rr-lbl">Account name<span class="rr-in"><input class="rr-fld" type="text" data-dk="name" value="${esc(d.name)}"></span></label>
+          <div class="rr-lbl"><span>Account type</span>
+            <div class="rr-seg" role="group" aria-label="Account type">
+              <button type="button" class="rr-pill" data-action="type" data-type="installment" aria-pressed="${d.type === 'installment'}">Installment</button>
+              <button type="button" class="rr-pill" data-action="type" data-type="revolving" aria-pressed="${d.type === 'revolving'}">Revolving</button>
+            </div>
+          </div>
+          <label class="rr-lbl">Balance owed<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-dk="balance" value="${esc(d.balance)}"><span class="rr-sfx">$</span></span></label>
+          <label class="rr-lbl">Interest rate<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" max="50" step="0.01" data-dk="rate" value="${esc(d.rate)}"><span class="rr-sfx">%</span></span></label>
+          <label class="rr-lbl">Monthly payment<span class="rr-in"><input class="rr-fld" type="number" inputmode="decimal" min="0" data-dk="payment" value="${esc(d.payment)}"><span class="rr-sfx">$</span></span></label>
+          <div class="rr-sec-row"><span>Secured by this home?</span>
+            <button type="button" class="rr-sw" role="switch" aria-checked="${d.secured}" aria-label="Account ${i + 1} secured by this home" data-action="secured"><span class="rr-trk"><span class="rr-knob"></span></span></button>
+          </div>
+        </div>
+        <p class="rr-dnote" data-note="${i}"></p>
+      </div>`).join('');
+  }
+
+  function syncInputs() {
+    root.querySelectorAll<HTMLInputElement>('[data-field]').forEach((el) => {
+      const k = el.dataset.field as string;
+      if (k !== 'extra') el.value = state.v[k] ?? '';
+    });
+  }
+
+  function update() {
+    const c = compute();
+    root.querySelectorAll<HTMLElement>('[data-out]').forEach((el) => { el.textContent = c.out[el.dataset.out as string] ?? ''; });
+    root.querySelectorAll<HTMLElement>('[data-show]').forEach((el) => { el.hidden = !c.show[el.dataset.show as string]; });
+    root.querySelectorAll<HTMLElement>('[data-tone]').forEach((el) => {
+      el.classList.remove('rr-tone-up', 'rr-tone-down', 'rr-tone-unknown');
+      el.classList.add('rr-tone-' + c.tones[el.dataset.tone as string]);
+    });
+    errEl.innerHTML = c.errors.map((e) => `<li>${esc(e)}</li>`).join('');
+    c.notes.forEach((n, i) => {
+      const el = debtsEl.querySelector<HTMLElement>(`[data-note="${i}"]`);
+      if (el) { el.textContent = n.text; el.classList.toggle('rr-bad', !n.ok); }
+    });
+    const extraEl = root.querySelector<HTMLInputElement>('[data-field="extra"]');
+    if (extraEl && document.activeElement !== extraEl) extraEl.value = c.extraStr;
+    const fin = root.querySelector('[data-action="finance"]');
+    fin?.setAttribute('aria-checked', String(state.finance));
+  }
+
+  root.addEventListener('input', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.dataset.field) {
+      if (t.dataset.field === 'extra') state.extra = t.value;
+      else state.v[t.dataset.field] = t.value;
+    } else if (t.dataset.dk) {
+      const id = Number(t.closest<HTMLElement>('.rr-debt')?.dataset.id);
+      const d = state.debts.find((x) => x.id === id);
+      if (d) (d as Record<string, unknown>)[t.dataset.dk] = t.value;
+    }
+    update();
+  });
+
+  root.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-action]');
+    if (!btn) return;
+    const action = btn.dataset.action;
+    const card = btn.closest<HTMLElement>('.rr-debt');
+    const d = card ? state.debts.find((x) => x.id === Number(card.dataset.id)) : undefined;
+    switch (action) {
+      case 'reset': state.v = defaults(); state.finance = true; state.debts = exampleDebts(); state.extra = null; syncInputs(); renderDebts(); break;
+      case 'clear': state.v = blank(); state.finance = true; state.debts = []; state.extra = null; syncInputs(); renderDebts(); break;
+      case 'finance': state.finance = !state.finance; break;
+      case 'add': state.debts.push({ id: Date.now(), name: 'New account', type: 'installment', balance: '', rate: '', payment: '', secured: false }); renderDebts(); break;
+      case 'remove': state.debts = state.debts.filter((x) => x !== d); renderDebts(); break;
+      case 'type': if (d) { d.type = btn.dataset.type as Debt['type']; renderDebts(); } break;
+      case 'secured': if (d) { d.secured = !d.secured; renderDebts(); } break;
+      case 'useSavings': state.extra = null; break;
+      case 'useZero': state.extra = '0'; break;
+      default: return;
+    }
+    update();
+  });
+
+  syncInputs();
+  renderDebts();
+  update();
+</script>
